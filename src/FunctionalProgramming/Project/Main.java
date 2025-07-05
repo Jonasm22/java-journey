@@ -25,9 +25,10 @@ public class Main {
         System.out.println("--------------------------------------");
         System.out.println("Sort by price in ascending order using sort\n");
 
-        List<Car> priceSorted = new ArrayList<>(carList);
-        priceSorted.sort(Comparator.comparing(Car::getCost));
-        priceSorted.forEach(System.out::println);
+           List<Car> orderPrice = new ArrayList<Car>(carList);
+            orderPrice.sort(Comparator.comparing(Car::getCost).reversed()); // Comparing to major to minor
+            orderPrice.forEach(System.out::println);
+
 
         // 2. Sort by brand then by price using sorted()
         System.out.println("--------------------------------------");
@@ -37,30 +38,33 @@ public class Main {
                 .sorted(Comparator
                         .comparing(Car::getBrand)
                         .thenComparing(Car::getCost))
-                .forEach(System.out::println);
+                        .forEach(System.out::println);
+
+
 
         // 3. Cars with price not exceeding 23000
         System.out.println("--------------------------------------");
         System.out.println("Cars with price not exceeding 23000\n");
 
         carList.stream()
-                .filter(car -> car.getCost() <= 23000)
-                .forEach(System.out::println);
+                .filter(car -> car.getCost() <23000)
+                        .forEach(System.out::println);
 
         // 4. Cars with brand Chevrolet or Volkswagen
         System.out.println("--------------------------------------");
         System.out.println("Cars with brand Chevrolet or Volkswagen\n");
 
         carList.stream()
-                .filter(car -> car.getBrand().equals("Chevrolet") || car.getBrand().equals("Volkswagen"))
-                .forEach(System.out::println);
+                .filter(car->car.getBrand().equals("Chevrolet") || car.getBrand().contains("Volkswagen"))
+                        .forEach(System.out::println);
 
         // 5. Cars whose model contains at least one “a”
         System.out.println("--------------------------------------");
         System.out.println("Cars whose model contains at least one 'a'\n");
-
         carList.stream()
-                .filter(car -> car.getModel().toLowerCase().contains("a"))
+                .filter(car->car.getBrand().toLowerCase().contains("a"))
                 .forEach(System.out::println);
+
+
     }
 }

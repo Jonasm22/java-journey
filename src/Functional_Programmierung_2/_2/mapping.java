@@ -85,6 +85,7 @@ Collect the final result into a list of integers and display it on the screen.
 
                 finalPreis.forEach(System.out::println);
 
+
         //System.out.println(finalPreis);
 
 

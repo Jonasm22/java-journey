@@ -24,8 +24,9 @@ public class Example_1 {
                 "Ecuador", "Argentina", "Italy", "Portugal", "Chile", "Colombia", "Peru");
 
         countries.stream()
-                .filter(country -> country.toLowerCase().contains("a"))
+                .filter(country->country.toLowerCase().contains("a"))
                 .forEach(System.out::println);
+
 
     }
 
